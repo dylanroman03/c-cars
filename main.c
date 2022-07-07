@@ -138,13 +138,14 @@ int main()
       double add_gas = 0.00;
       double total_gas = 0.00;
       double max_gas = 0.00;
-      char car_trans[20];
+      char car_trans[15];
       char brand[20];
       int finded_cars = 0;
       char new_brand[20];
       int index_cars[2];
       struct car car;
       bool wrongValue = true;
+      bool report_car = false;
 
       printf("Ingrese nombre del cliente:\n");
       scanf(" %s", &customer_name);
@@ -272,32 +273,44 @@ int main()
 
         if (total_gas > max_gas && add_gas > 0)
         {
-          if(car.automatic) {
-            strcpy(car_trans, "Automatic");
-          } else {
-            strcpy(car_trans, "Manual");
-          }
+          printf("\nEl vehiculo sera reportado\n\n");
+          report_car = true;
+        }
+
+        if(car.automatic) {
+          strcpy(car_trans, "Automatico");
+        } else {
+          strcpy(car_trans, "Manual");
+        }
+
 
           printf(" __________________________");
-          printf("\n|El vehiculo sera reportado|\n");
+          printf("\n|         REPORTE          |\n");
           printf("|__________________________|\n");
+          printf("Usuario: %s\n", name);
+          printf("Cliente: %s\n", customer_name);
           if (total_gas < 0)
           {
             printf(
-              "|%s\t%s\t%dlts\t\n",
+              "%s\t %s \t %0.2lflts\t\n",
               car.brand,
               car_trans,
               car.tank
               );
           } else {
             printf(
-              "|%s\t%s\t%dlts\t\n",
+              "%s\t %s \t %0.2lflts\t\n",
               car.brand,
               car_trans,
               total_gas
               );
           }
-        }
+
+          if (report_car){
+            printf("Carro Reportado\n\n");
+          } else {
+            printf("\n\n");
+          }
         
       }
 
