@@ -1,3 +1,9 @@
+/*
+  Dylan Roman Buitrago Gil
+  PROF. Nixón Patiño
+  Sec. 1
+*/
+
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
